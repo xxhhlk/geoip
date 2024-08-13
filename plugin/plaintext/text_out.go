@@ -37,7 +37,7 @@ func (t *textOut) GetDescription() string {
 
 func (t *textOut) Output(container lib.Container) error {
 	// Filter want list
-	wantList := make([]string, 0, 50)
+	wantList := make([]string, 0, len(t.Want))
 	for _, want := range t.Want {
 		if want = strings.ToUpper(strings.TrimSpace(want)); want != "" {
 			wantList = append(wantList, want)

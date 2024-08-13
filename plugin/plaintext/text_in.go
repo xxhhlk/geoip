@@ -31,6 +31,7 @@ func newTextIn(iType string, action lib.Action, data json.RawMessage) (lib.Input
 		Name       string     `json:"name"`
 		URI        string     `json:"uri"`
 		InputDir   string     `json:"inputDir"`
+		Want       []string   `json:"wantedList"`
 		OnlyIPType lib.IPType `json:"onlyIPType"`
 
 		JSONPath             []string `json:"jsonPath"`
@@ -67,6 +68,7 @@ func newTextIn(iType string, action lib.Action, data json.RawMessage) (lib.Input
 		Name:        tmp.Name,
 		URI:         tmp.URI,
 		InputDir:    tmp.InputDir,
+		Want:        tmp.Want,
 		OnlyIPType:  tmp.OnlyIPType,
 
 		JSONPath:             tmp.JSONPath,
@@ -121,7 +123,19 @@ func (t *textIn) Input(container lib.Container) (lib.Container, error) {
 		return nil, fmt.Errorf("type %s | action %s no entry is generated", t.Type, t.Action)
 	}
 
+	// Filter want list
+	wantList := make(map[string]bool)
+	for _, want := range t.Want {
+		if want = strings.ToUpper(strings.TrimSpace(want)); want != "" {
+			wantList[want] = true
+		}
+	}
+
 	for _, entry := range entries {
+		if len(wantList) > 0 && !wantList[entry.GetName()] {
+			continue
+		}
+
 		switch t.Action {
 		case lib.ActionAdd:
 			if err := container.Add(entry, ignoreIPType); err != nil {

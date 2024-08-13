@@ -39,6 +39,7 @@ func newMRSIn(action lib.Action, data json.RawMessage) (lib.InputConverter, erro
 		Name       string     `json:"name"`
 		URI        string     `json:"uri"`
 		InputDir   string     `json:"inputDir"`
+		Want       []string   `json:"wantedList"`
 		OnlyIPType lib.IPType `json:"onlyIPType"`
 	}
 
@@ -63,6 +64,7 @@ func newMRSIn(action lib.Action, data json.RawMessage) (lib.InputConverter, erro
 		Name:        tmp.Name,
 		URI:         tmp.URI,
 		InputDir:    tmp.InputDir,
+		Want:        tmp.Want,
 		OnlyIPType:  tmp.OnlyIPType,
 	}, nil
 }
@@ -74,6 +76,7 @@ type mrsIn struct {
 	Name        string
 	URI         string
 	InputDir    string
+	Want        []string
 	OnlyIPType  lib.IPType
 }
 
@@ -111,6 +114,18 @@ func (m *mrsIn) Input(container lib.Container) (lib.Container, error) {
 		return nil, err
 	}
 
+	if len(entries) == 0 {
+		return nil, fmt.Errorf("❌ [type %s | action %s] no entry is generated", m.Type, m.Action)
+	}
+
+	// Filter want list
+	wantList := make(map[string]bool)
+	for _, want := range m.Want {
+		if want = strings.ToUpper(strings.TrimSpace(want)); want != "" {
+			wantList[want] = true
+		}
+	}
+
 	var ignoreIPType lib.IgnoreIPOption
 	switch m.OnlyIPType {
 	case lib.IPv4:
@@ -119,11 +134,11 @@ func (m *mrsIn) Input(container lib.Container) (lib.Container, error) {
 		ignoreIPType = lib.IgnoreIPv4
 	}
 
-	if len(entries) == 0 {
-		return nil, fmt.Errorf("❌ [type %s | action %s] no entry is generated", m.Type, m.Action)
-	}
-
 	for _, entry := range entries {
+		if len(wantList) > 0 && !wantList[entry.GetName()] {
+			continue
+		}
+
 		switch m.Action {
 		case lib.ActionAdd:
 			if err := container.Add(entry, ignoreIPType); err != nil {

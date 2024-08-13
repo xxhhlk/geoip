@@ -94,7 +94,7 @@ func (g *geoIPDatOut) GetDescription() string {
 
 func (g *geoIPDatOut) Output(container lib.Container) error {
 	// Filter want list
-	wantList := make([]string, 0, 50)
+	wantList := make([]string, 0, len(g.Want))
 	for _, want := range g.Want {
 		if want = strings.ToUpper(strings.TrimSpace(want)); want != "" {
 			wantList = append(wantList, want)

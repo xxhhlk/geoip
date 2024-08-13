@@ -83,7 +83,7 @@ func (s *srsOut) GetDescription() string {
 
 func (s *srsOut) Output(container lib.Container) error {
 	// Filter want list
-	wantList := make([]string, 0, 50)
+	wantList := make([]string, 0, len(s.Want))
 	for _, want := range s.Want {
 		if want = strings.ToUpper(strings.TrimSpace(want)); want != "" {
 			wantList = append(wantList, want)
