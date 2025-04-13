@@ -6,7 +6,6 @@
       "args": {
         "name": "akamai",
         "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv4.txt",
-        "onlyIPType": "ipv4"
       }
     },
     {
@@ -15,7 +14,6 @@
       "args": {
         "name": "akamai",
         "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv6.txt",
-        "onlyIPType": "ipv6"
       }
     }
   ],
@@ -25,7 +23,7 @@
       "action": "output",
       "args": {
         "outputDir": "./output",
-        "outputName": "akamai_ip.dat"
+        "outputName": "xxhhlk.dat"
       }
     },
     {
@@ -33,7 +31,7 @@
       "action": "output",
       "args": {
         "outputDir": "./output",
-        "outputName": "akamai_ip.txt"
+        "outputName": "xxhhlk.txt"
       }
     }
   ]
