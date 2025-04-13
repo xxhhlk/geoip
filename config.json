@@ -5,7 +5,7 @@
       "action": "add",
       "args": {
         "name": "akamai",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv4.txt",
+        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv4.txt"
       }
     },
     {
@@ -13,7 +13,7 @@
       "action": "add",
       "args": {
         "name": "akamai",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv6.txt",
+        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv6.txt"
       }
     }
   ],
