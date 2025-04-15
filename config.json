@@ -21,7 +21,7 @@
       "action": "add",
       "args": {
         "name": "aws",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv6.txt"
+        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/awsipv4.txt"
       }
     },
     {
@@ -29,7 +29,7 @@
       "action": "add",
       "args": {
         "name": "aws",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv6.txt"
+        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/awsipv6.txt"
       }
     }
   ],
