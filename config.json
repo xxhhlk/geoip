@@ -15,6 +15,22 @@
         "name": "akamai",
         "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv6.txt"
       }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "aws",
+        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv6.txt"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "aws",
+        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv6.txt"
+      }
     }
   ],
   "output": [
