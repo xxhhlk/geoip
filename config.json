@@ -31,6 +31,22 @@
         "name": "aws",
         "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/awsipv6.txt"
       }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "chinamobile",
+        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/chinamobileipv4.txt"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "chinamobile",
+        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/chinamobileipv6.txt"
+      }
     }
   ],
   "output": [
