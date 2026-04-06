@@ -4,6 +4,14 @@
       "type": "text",
       "action": "add",
       "args": {
+        "name": "amazon",
+        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/amazon.txt"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
         "name": "akamai",
         "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv4.txt"
       }
