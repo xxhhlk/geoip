@@ -47,13 +47,6 @@ jobs:
             sha256sum ${name} > ./${name}.sha256sum
           done
 
-      - name: Generate sha256 checksum for mmdb files
-        run: |
-          cd ./output || exit 1
-          for name in $(ls *.mmdb); do
-            sha256sum ${name} > ./${name}.sha256sum
-          done
-
       - name: Git push assets to "release" branch
         run: |
           cd output || exit 1
@@ -76,9 +69,6 @@ jobs:
       - name: Remove some files to avoid publishing to GitHub release
         run: |
           rm -rf ./output/*.{gz,zip}
-          rm -rf ./output/GeoLite2-*.csv
-          rm -rf ./output/GeoLite2-*.mmdb
-          rm -rf ./output/GeoLite2-*.sha256sum
           rm -rf ./output/{clash,dat,mrs,nginx,srs,surge,text}
 
       - name: Upload files to GitHub release
