@@ -25,18 +25,14 @@ jobs:
           echo "RELEASE_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
         shell: bash
 
-      - name: Fetch IP data sources
+      - name: Fetch Akamai IP data (harrisonwang/cloud-ip-crawler)
         run: |
           set -euo pipefail
-          # AWS (axpwx/IP-Data)
-          curl -fsSL -o awsipv4.txt "https://raw.githubusercontent.com/axpwx/IP-Data/master/provider/aws-cidr-ipv4.txt"
-          curl -fsSL -o awsipv6.txt "https://raw.githubusercontent.com/axpwx/IP-Data/master/provider/aws-cidr-ipv6.txt"
-          # Akamai (harrisonwang/cloud-ip-crawler: 从 CSV 抽取 provider=akamai 的 CIDR)
+          # 从 CSV 抽取 provider 为 akamai 或 linode(Akamai 旗下) 的 CIDR
           curl -fsSL -o cloud-ip.csv.gz "https://github.com/harrisonwang/cloud-ip-crawler/releases/download/dataset-latest/cloud-ip.csv.gz"
-          gunzip -c cloud-ip.csv.gz | awk -F',' '$1=="akamai"{print $2}' > akamai.txt
+          gunzip -c cloud-ip.csv.gz | awk -F',' '($1=="akamai" || $1=="linode"){print $2}' > akamai.txt
           rm -f cloud-ip.csv.gz
-          # China Mobile (yfgao)
-          curl -fsSL -o chinamobile.txt "https://china-operator-ip.yfgao.com/cmcc46.txt"
+          echo "akamai.txt lines: $(wc -l < akamai.txt)"
         shell: bash
 
       - name: Build geoip files

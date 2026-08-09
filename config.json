@@ -5,7 +5,7 @@
       "action": "add",
       "args": {
         "name": "aws",
-        "uri": "./awsipv4.txt"
+        "uri": "https://raw.githubusercontent.com/axpwx/IP-Data/master/provider/aws-cidr-ipv4.txt"
       }
     },
     {
@@ -13,7 +13,7 @@
       "action": "add",
       "args": {
         "name": "aws",
-        "uri": "./awsipv6.txt"
+        "uri": "https://raw.githubusercontent.com/axpwx/IP-Data/master/provider/aws-cidr-ipv6.txt"
       }
     },
     {
@@ -29,7 +29,7 @@
       "action": "add",
       "args": {
         "name": "chinamobile",
-        "uri": "./chinamobile.txt"
+        "uri": "https://china-operator-ip.yfgao.com/cmcc46.txt"
       }
     }
   ],
