@@ -4,24 +4,8 @@
       "type": "text",
       "action": "add",
       "args": {
-        "name": "amazon",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/amazon.txt"
-      }
-    },
-    {
-      "type": "text",
-      "action": "add",
-      "args": {
-        "name": "akamai",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv4.txt"
-      }
-    },
-    {
-      "type": "text",
-      "action": "add",
-      "args": {
-        "name": "akamai",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/akamai_merged_ipv6.txt"
+        "name": "aws",
+        "uri": "./awsipv4.txt"
       }
     },
     {
@@ -29,23 +13,15 @@
       "action": "add",
       "args": {
         "name": "aws",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/awsipv4.txt"
+        "uri": "./awsipv6.txt"
       }
     },
     {
       "type": "text",
       "action": "add",
       "args": {
-        "name": "aws",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/awsipv6.txt"
-      }
-    },
-    {
-      "type": "text",
-      "action": "add",
-      "args": {
-        "name": "chinamobile",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/chinamobileipv4.txt"
+        "name": "akamai",
+        "uri": "./akamai.txt"
       }
     },
     {
@@ -53,7 +29,7 @@
       "action": "add",
       "args": {
         "name": "chinamobile",
-        "uri": "https://raw.githubusercontent.com/xxhhlk/geoip/refs/heads/master/chinamobileipv6.txt"
+        "uri": "./chinamobile.txt"
       }
     }
   ],
